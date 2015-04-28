@@ -5,10 +5,6 @@ var LoginSys = angular.module('LoginSys',['ngRoute']);
             .when('/', {
             redirectTo:"/signIn"
             })
-            /*.when('/welcome', {
-                templateUrl: 'views/Welcome.html',
-                controller:'welcome'
-            })*/
             .when('/signUp', {
                 templateUrl:'views/SignUp.html',
                 controller: 'signUp'

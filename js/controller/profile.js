@@ -11,30 +11,26 @@ LoginSys.controller('profile',function($rootScope,$scope,$location,$http){
             $scope.toggleInput = false;
         }
         $scope.logout = function(){
-/*
+
             $http({
                 url: "http://localhost:3000/api/v1.0/logout",
                 headers: {"apikey": "pDblTMZaFam59d@F9c#V1G9UEL17)Odz"},
-                data: $scope.userData,  // data{email: data.email, pass: data.pass},//$scope.userData,
-                method: "POST"
+                method: "GET"
             }).success(function (res, textStatus) {
                 if (res.error == 0) {
                     console.log(res);
                     console.log("Success ");
-                    $scope.errorMsg = "";
-                    sessionStorage.setItem('userData', JSON.stringify(res.data));
-                    // console.log(res);
-                    $scope.go('/profile');
+                    sessionStorage.clear();
+                    $scope.go('/');
                     if (!$scope.$$phase) $scope.$apply();
                 } else {
-                    $scope.errorMsg = res.message;
-                    //console.log(textStatus)
+                    console.log(res)
                 }
             }).error(
                 function () {
                     console.log("Error");
                 }
-            )//Error*/
+            )//Error
         }
         $scope.changePass = function(){
             console.log($scope.userData.passChange)
@@ -70,8 +66,8 @@ LoginSys.controller('profile',function($rootScope,$scope,$location,$http){
     }
 
 
-    /*  $scope.go = function (path){
+      $scope.go = function (path){
      $location.path(path);
-     }*/
+     }
 
 })
