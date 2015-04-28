@@ -1,0 +1,28 @@
+<header class="myFormDiv">
+    <div class="intro-body">
+        <div class="container">
+
+
+
+
+                    <h1 class="brand-heading" >Welcome</h1>
+                    <p >
+                        <label>Email: </label>
+                        <span>{{userData.email}}</span>
+                        <br>
+                        <label>Password: </label>
+                        <a ng-click="showInput()" ng-show="toggleInput">Change Password</a>
+                        <input type="password" ng-hide="toggleInput" ng-model="userData.passChange" placeholder="Change Password">
+                        <button type="button" ng-hide="toggleInput"  ng-click="changePass()">Change</button>
+                        <br>
+                        <span>{{errMsg}}</span>
+                        <br>
+                        <span style="color: blue" ng-click="logout()">Logout</span>
+                    </p>
+
+
+
+
+        </div>
+    </div>
+</header>

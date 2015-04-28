@@ -3,14 +3,15 @@
 
 <div class="container">
 
-  <form class="form-signin">
+  <form class="form-signin" name="loginForm">
     <h2 class="form-signin-heading">Please sign in</h2>
-    <input type="text" class="form-control" placeholder="User Name"  ng-model="userData.username" autofocus>
-    <input type="password" class="form-control" placeholder="Password" ng-model="userData.password">
+    <input type="text" name="username"  class="form-control" placeholder="User Name"  ng-model="userData.username" ng-minlength="3"  required autofocus>
+      <span ng-show="loginForm.username.$error.minlength" class="validationWarningText">Username is too short.</span>
+    <input type="password" class="form-control" placeholder="Password" required ng-model="userData.password">
+
+
     <br>
-    <span>{{errorMsg}}</span>
-    <br>
-    <button class="btn btn-lg btn-primary btn-block" ng-click="SignInForm()">Sign in</button>
+    <button type="button" class="btn btn-lg btn-primary btn-block" ng-click="SignInForm()" ng-disabled="loginForm.$invalid">Sign in</button>
     <button class="btn btn-lg btn-primary btn-block" ng-click="go('signUp')">Sign up</button>
 
   </form>

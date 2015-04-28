@@ -1,18 +1,28 @@
 <div >
 <div class="container">
-    <div class="form-signin">
+    <form class="form-signin" name="signUpForm">
       <h2 class="form-signin-heading">Please Sign Up</h2>
-      <input type="text" class="form-control" placeholder="User Name" ng-model="userData.username" autofocus>
-      <input type="text" class="form-control" placeholder="Email address" ng-model="userData.email" autofocus>
-      <input type="password" class="form-control" placeholder="Password" ng-model="userData.password">
-      <input type="password" class="form-control" placeholder="Re-Password" ng-model="userData.passwordConfirm" >
-      <br>
-      <span>{{errorMsg}}</span>
-      <br>
-      <button class="btn btn-lg btn-primary btn-block" ng-click="submitForm()">Sign Up</button>
+
+        <input type="text" name="username" class="form-control" placeholder="User Name" ng-model="userData.username" ng-minlength="3" ng-maxlength="15" required autofocus>
+        <span ng-show="signUpForm.username.$error.minlength" class="validationWarningText">Username is too short.</span>
+        <span ng-show="signUpForm.username.$error.maxlength" class="validationWarningText">Username is too long.</span>
+
+        <input type="email" name="email" class="form-control" placeholder="Email address" ng-model="userData.email" required>
+        <span ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine" class="validationWarningText">Enter a valid email.</span>
+
+        <input type="password" class="form-control" name="password" placeholder="Password" ng-model="userData.password"  ng-minlength="3" ng-maxlength="15" required>
+        <span ng-show="signUpForm.password.$error.minlength" class="validationWarningText">Password is too short.</span>
+        <span ng-show="signUpForm.password.$error.maxlength" class="validationWarningText">Password is too long.</span>
+
+        <input type="password" class="form-control" placeholder="Re-Password" data-match="userData.password" ng-model="userData.passwordConfirm" required name="confirmPassword" >
+        <span data-ng-show="signUpForm.confirmPassword.$error.match" class="validationWarningText">Password does not match</span>
+
+        <br>
+
+      <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="submitForm()"  ng-disabled="signUpForm.$invalid">Sign Up</button>
       <button class="btn btn-lg btn-primary btn-block" ng-click="go('signIn')">Sign In</button>
 
-    </div>
+    </form>
 
   </div> <!-- /container -->
 

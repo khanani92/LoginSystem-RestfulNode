@@ -17,9 +17,9 @@ var LoginSys = angular.module('LoginSys',['ngRoute']);
                 templateUrl:'views/SignIn.html',
                 controller:'signIn'
             })
-            .when('/dashBoard', {
-                templateUrl:'views/SummeryPage.html',
-                controller:'summeryPage'
+            .when('/profile', {
+                templateUrl:'views/profile.html',
+                controller:'profile'
             })
 
             .otherwise({
