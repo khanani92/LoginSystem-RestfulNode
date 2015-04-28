@@ -1,0 +1,22 @@
+<div>
+
+
+<div class="container">
+
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <input type="text" class="form-control" placeholder="User Name"  ng-model="userData.username" autofocus>
+    <input type="password" class="form-control" placeholder="Password" ng-model="userData.password">
+    <br>
+    <span>{{errorMsg}}</span>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" ng-click="SignInForm()">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" ng-click="go('signUp')">Sign up</button>
+
+  </form>
+
+</div> <!-- /container -->
+
+
+</div>
+
